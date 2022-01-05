@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">DVStars Attendance App</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sell">Sell</string>
+    <string name="teacher">Owner Name</string>
+    <string name="class_name_req">Class Name <font color='#FF0000'>*</font></string>
+    <string name="section">Section <font color='#FF0000'>*</font></string>
+    <string name="save_action">Save</string>
+    <string name="item_detail_fragment_title">Item Details</string>
+    <string name="add_fragment_title">Add Item</string>
+    <string name="edit_fragment_title">Edit Item</string>
+    <string name="price">Price</string>
+    <string name="quantity_in_stock">Quantity\nIn Stock</string>
+    <string name="item">Item</string>
+    <string name="delete">Delete</string>
+    <string name="delete_question">Are you sure you want to delete?</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="currency_symbol">$</string>
+    <string name="edit_item">Edit Item</string>
+    <string name="add_new_item">Add new item</string>
+    <string name="deepshikha_yadav">Deepshikha yadav</string>
+    <string name="_1">1</string>
+    <string name="class_name">Class Name</string>
+    <string name="section_txt">Section</string>
+    <string name="teacher_name">Teacher Name</string>
+    <string name="fab">fab</string>
+</resources>
