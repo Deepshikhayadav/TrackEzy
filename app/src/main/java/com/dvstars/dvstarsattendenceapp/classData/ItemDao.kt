@@ -1,11 +1,7 @@
-package com.dvstars.dvstarsattendenceapp.data
+package com.dvstars.dvstarsattendenceapp.classData
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
+import com.dvstars.dvstarsattendenceapp.studentData.Student
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -20,6 +16,8 @@ interface ItemDao {
     @Query("SELECT * from item WHERE id = :id")
     fun getItem(id: Int): Flow<Item>
 
+
+
     // Specify the conflict strategy as IGNORE, when the user tries to add an
     // existing Item into the database Room ignores the conflict.
     @Insert(onConflict = OnConflictStrategy.IGNORE)
@@ -30,4 +28,13 @@ interface ItemDao {
 
     @Delete
     suspend fun delete(item: Item)
+
+/*
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertStudent(student: Student)
+
+    @Transaction
+    @Query("SELECT * FROM Item WHERE id = :id")
+    suspend fun getClassWithStudents(id :Int) : Flow<List<ClassWithStudents>>
+*/
 }

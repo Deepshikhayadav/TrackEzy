@@ -1,8 +1,7 @@
-package com.dvstars.dvstarsattendenceapp.data
+package com.dvstars.dvstarsattendenceapp.classData
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.text.NumberFormat
 
 /**
  * Entity data class represents a single row in the database.
@@ -17,10 +16,6 @@ data class Item(
     val sectionName: String,
     @ColumnInfo(name = "teacher")
     val teacherName:String,
+
+
 )
-/**
- * Returns the passed in price in currency format.
- */
-/*
-fun Item.getFormattedPrice(): String =
-    NumberFormat.getCurrencyInstance().format(itemPrice)*/

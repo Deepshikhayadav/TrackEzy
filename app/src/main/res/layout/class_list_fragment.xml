@@ -5,10 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ClassListFragment">
+    tools:context=".fragment.ClassListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
+        android:padding="@dimen/margin_between_elements"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"

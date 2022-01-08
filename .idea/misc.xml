@@ -3,20 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/activity_main.xml" value="0.16458333333333333" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/activity_activitybotnav.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/activity_bottom_nav.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/class_detail_list_item.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/class_details_item.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/class_list_fragment.xml" value="0.17314814814814813" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/class_list_item.xml" value="0.25" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/class_list_item.xml" value="0.22" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/fragment_add_class.xml" value="0.2" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/fragment_add_home.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/fragment_add_item.xml" value="0.17864583333333334" />
-        <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/fragment_class_detail.xml" value="0.2" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/fragment_add_student.xml" value="0.1875" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/fragment_attendance.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/fragment_class_detail.xml" value="0.18" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/fragment_home.xml" value="0.16" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/fragment_item_detail.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/fragment_student_detail_update.xml" value="0.16" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/fragment_take_attendance.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/home_list_item.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/item_list_fragment.xml" value="0.17864583333333334" />
         <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/layout/item_list_item.xml" value="0.17864583333333334" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/DVStarsAttendenceApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17864583333333334" />
       </map>
     </option>
   </component>

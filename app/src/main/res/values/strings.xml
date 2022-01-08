@@ -25,4 +25,13 @@
     <string name="section_txt">Section</string>
     <string name="teacher_name">Teacher Name</string>
     <string name="fab">fab</string>
+    <string name="student_name">Student Name <font color='#FF0000'>*</font></string>
+    <string name="edit">Edit</string>
+    <string name="title_activity_bottom_nav">bottomNav</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_activitybotnav">activitybotnav</string>
+    <string name="attendance">Attendance</string>
+
 </resources>

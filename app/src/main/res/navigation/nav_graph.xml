@@ -7,7 +7,7 @@
 
         <fragment
             android:id="@+id/itemListFragment"
-            android:name="com.dvstars.dvstarsattendenceapp.ClassListFragment"
+            android:name="com.dvstars.dvstarsattendenceapp.fragment.ClassListFragment"
             android:label="@string/app_name"
             tools:layout="@layout/class_list_fragment">
             <action
@@ -19,8 +19,8 @@
         </fragment>
         <fragment
             android:id="@+id/itemDetailFragment"
-            android:name="com.dvstars.dvstarsattendenceapp.ClassDetailFragment"
-            android:label="@string/item_detail_fragment_title"
+            android:name="com.dvstars.dvstarsattendenceapp.fragment.ClassDetailFragment"
+            android:label="Total Student"
             tools:layout="@layout/fragment_class_detail">
             <argument
                 android:name="item_id"
@@ -28,10 +28,16 @@
             <action
                 android:id="@+id/action_itemDetailFragment_to_addItemFragment"
                 app:destination="@id/addItemFragment" />
+            <action
+                android:id="@+id/action_itemDetailFragment_to_addStudentFragment"
+                app:destination="@id/addStudentFragment" />
+            <action
+                android:id="@+id/action_itemDetailFragment_to_studentDetailUpdateFragment"
+                app:destination="@id/studentDetailUpdateFragment" />
         </fragment>
         <fragment
             android:id="@+id/addItemFragment"
-            android:name="com.dvstars.dvstarsattendenceapp.AddClassFragment"
+            android:name="com.dvstars.dvstarsattendenceapp.fragment.AddClassFragment"
             android:label="{title}"
             tools:layout="@layout/fragment_add_class">
             <argument
@@ -47,4 +53,50 @@
                 app:popUpTo="@id/itemListFragment"
                 app:popUpToInclusive="true" />
         </fragment>
-    </navigation>
+    <fragment
+        android:id="@+id/addStudentFragment"
+        android:name="com.dvstars.dvstarsattendenceapp.fragment.AddStudentFragment"
+        android:label="Add Student"
+        tools:layout="@layout/fragment_add_student" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="student_id"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_addStudentFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentDetailUpdateFragment"
+        android:name="com.dvstars.dvstarsattendenceapp.fragment.StudentDetailUpdateFragment"
+        android:label="fragment_student_detail_update"
+        tools:layout="@layout/fragment_student_detail_update" >
+        <argument
+            android:name="student_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_studentDetailUpdateFragment_to_itemDetailFragment"
+            app:destination="@id/itemDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/attendanceFragment"
+        android:name="com.dvstars.dvstarsattendenceapp.fragment.AttendanceFragment"
+        android:label="Attendance"
+        tools:layout="@layout/fragment_attendance" >
+        <action
+            android:id="@+id/action_attendanceFragment_to_takeAttendanceFragment"
+            app:destination="@id/takeAttendanceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/takeAttendanceFragment"
+        android:name="com.dvstars.dvstarsattendenceapp.fragment.TakeAttendanceFragment"
+        android:label="Take Attendance"
+        tools:layout="@layout/fragment_take_attendance" >
+        <argument
+            android:name="item_id"
+            app:argType="integer" />
+    </fragment>
+</navigation>

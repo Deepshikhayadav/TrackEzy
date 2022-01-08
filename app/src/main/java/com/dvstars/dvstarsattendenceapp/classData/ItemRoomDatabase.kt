@@ -1,17 +1,20 @@
-package com.dvstars.dvstarsattendenceapp.data
+package com.dvstars.dvstarsattendenceapp.classData
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.dvstars.dvstarsattendenceapp.studentData.Student
+import com.dvstars.dvstarsattendenceapp.studentData.StudentDao
 
 /**
  * Database class with a singleton INSTANCE object.
  */
-@Database(entities = [Item::class], version = 1, exportSchema = false)
+@Database(entities = [Item::class, Student::class], version = 1, exportSchema = false)
 abstract class ItemRoomDatabase : RoomDatabase() {
 
     abstract fun itemDao(): ItemDao
+    abstract fun studentDao(): StudentDao
 
     companion object {
         @Volatile

@@ -5,24 +5,35 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.dvstars.dvstarsattendenceapp.data.Item
-import com.dvstars.dvstarsattendenceapp.data.ItemDao
+import com.dvstars.dvstarsattendenceapp.classData.Item
+import com.dvstars.dvstarsattendenceapp.classData.ItemDao
+import com.dvstars.dvstarsattendenceapp.studentData.Student
 import kotlinx.coroutines.launch
 
 /**
  * View Model to keep a reference to the Inventory repository and an up-to-date list of all items.
  *
  */
-class InventoryViewModel(private val itemDao: ItemDao) : ViewModel() {
+class AttendanceViewModel(private val itemDao: ItemDao) : ViewModel() {
 
     // Cache all items form the database using LiveData.
     val allItems: LiveData<List<Item>> = itemDao.getItems().asLiveData()
 
-    /**
-     * Returns true if stock is available to sell, false otherwise.
-     */
-   /* fun isStockAvailable(item: Item): Boolean {
-        return (item.quantityInStock > 0)
+    /*fun oneToMany(itemId: Int){
+        val classWithStud :LiveData<List<Student>> =getManyStudents(itemId)
+    }
+    private fun getManyStudents(className: String, sectionName: String, teacherName: String): Item {
+        return Item(
+            className=className,
+            sectionName = sectionName,
+            teacherName = teacherName
+        )
+    }
+
+    private fun getStudents(itemId: Int): LiveData<List<Student>> {
+        viewModelScope.launch {
+          itemDao.getClassWithStudents(itemId).asLiveData()
+        }
     }
 */
     /**
@@ -48,16 +59,7 @@ class InventoryViewModel(private val itemDao: ItemDao) : ViewModel() {
         }
     }
 
-    /**
-     * Decreases the stock by one unit and updates the database.
-     */
-/*    fun sellItem(item: Item) {
-        if (item.quantityInStock > 0) {
-            // Decrease the quantity by 1
-            val newItem = item.copy(quantityInStock = item.quantityInStock - 1)
-            updateItem(newItem)
-        }
-    }*/
+
 
     /**
      * Inserts the new Item into database.
@@ -136,11 +138,11 @@ class InventoryViewModel(private val itemDao: ItemDao) : ViewModel() {
 /**
  * Factory class to instantiate the [ViewModel] instance.
  */
-class InventoryViewModelFactory(private val itemDao: ItemDao) : ViewModelProvider.Factory {
+class AttendanceViewModelFactory(private val itemDao: ItemDao) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(InventoryViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(AttendanceViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return InventoryViewModel(itemDao) as T
+            return AttendanceViewModel(itemDao) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

@@ -1,73 +1,74 @@
-package com.dvstars.dvstarsattendenceapp
+package com.dvstars.dvstarsattendenceapp.fragment
 
-import android.content.Context.INPUT_METHOD_SERVICE
+import android.content.Context
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
-import androidx.fragment.app.Fragment
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.dvstars.dvstarsattendenceapp.data.Item
+import com.dvstars.dvstarsattendenceapp.AttendanceApplication
+import com.dvstars.dvstarsattendenceapp.R
+import com.dvstars.dvstarsattendenceapp.StudentViewModel
+import com.dvstars.dvstarsattendenceapp.StudentViewModelFactory
 import com.dvstars.dvstarsattendenceapp.databinding.FragmentAddClassBinding
+import com.dvstars.dvstarsattendenceapp.databinding.FragmentAddStudentBinding
+import com.dvstars.dvstarsattendenceapp.studentData.Student
 
-
-/**
- * Fragment to add or update an item in the Inventory database.
- */
-class AddClassFragment : Fragment() {
-
-    // Use the 'by activityViewModels()' Kotlin property delegate from the fragment-ktx artifact
-    // to share the ViewModel across fragments.
-    private val viewModel: InventoryViewModel by activityViewModels {
-        InventoryViewModelFactory(
-            (activity?.application as AttendanceApplication).database
-                .itemDao()
+class AddStudentFragment : Fragment() {
+    private val viewModel: StudentViewModel by activityViewModels {
+        StudentViewModelFactory(
+            (activity?.application as AttendanceApplication).studentDatabase.studentDao()
         )
     }
-    private val navigationArgs: ClassDetailFragmentArgs by navArgs()
-
-    lateinit var item: Item
+    private val navigationArgs: StudentDetailUpdateFragmentArgs by navArgs()
+    //private val navArgs:ClassDetailFragmentArgs by navArgs()
+    lateinit var student: Student
 
     // Binding object instance corresponding to the fragment_add_item.xml layout
     // This property is non-null between the onCreateView() and onDestroyView() lifecycle callbacks,
     // when the view hierarchy is attached to the fragment
-    private var _binding: FragmentAddClassBinding? = null
+    private var _binding: FragmentAddStudentBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentAddClassBinding.inflate(inflater, container, false)
-        return binding.root
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
     }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentAddStudentBinding.inflate(inflater, container, false)
+        return binding.root
+
+    }
+
+
 
     /**
      * Returns true if the EditTexts are not empty
      */
     private fun isEntryValid(): Boolean {
         return viewModel.isEntryValid(
-            binding.className.text.toString(),
-            binding.sectionName.text.toString(),
-            binding.teacherName.text.toString(),
+            binding.studentName.text.toString(),
         )
     }
 
     /**
-     * Binds views with the passed in [item] information.
+     * Binds views with the passed in [student] information.
      */
-    private fun bind(item: Item) {
-       // val price = "%.2f".format(item.itemPrice)
+    private fun bind(student: Student) {
+
         binding.apply {
-            className.setText(item.className, TextView.BufferType.SPANNABLE)
-            sectionName.setText(item.sectionName, TextView.BufferType.SPANNABLE)
-            teacherName.setText(item.teacherName, TextView.BufferType.SPANNABLE)
-            saveAction.setOnClickListener { updateItem() }
+            studentName.setText(student.studentName, TextView.BufferType.SPANNABLE)
+            //saveAction.setOnClickListener { updateItem() }
         }
     }
 
@@ -77,11 +78,10 @@ class AddClassFragment : Fragment() {
     private fun addNewItem() {
         if (isEntryValid()) {
             viewModel.addNewItem(
-                binding.className.text.toString(),
-                binding.sectionName.text.toString(),
-                binding.teacherName.text.toString(),
+                binding.studentName.text.toString(),
+                navigationArgs.studentId,
             )
-            val action = AddClassFragmentDirections.actionAddItemFragmentToItemListFragment()
+            val action = AddStudentFragmentDirections.actionAddStudentFragmentToItemDetailFragment(navigationArgs.studentId)
             findNavController().navigate(action)
         }
     }
@@ -92,12 +92,12 @@ class AddClassFragment : Fragment() {
     private fun updateItem() {
         if (isEntryValid()) {
             viewModel.updateItem(
-                this.navigationArgs.itemId,
-                this.binding.className.text.toString(),
-                this.binding.sectionName.text.toString(),
-                this.binding.teacherName.text.toString()
+                this.navigationArgs.studentId,
+                this.binding.studentName.text.toString(),
+                this.navigationArgs.studentId
+
             )
-            val action = AddClassFragmentDirections.actionAddItemFragmentToItemListFragment()
+            val action = AddStudentFragmentDirections.actionAddStudentFragmentToItemDetailFragment(id)
             findNavController().navigate(action)
         }
     }
@@ -110,12 +110,11 @@ class AddClassFragment : Fragment() {
      */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val id = navigationArgs.itemId
+        val id = navigationArgs.studentId
         if (id > 0) {
             viewModel.retrieveItem(id).observe(this.viewLifecycleOwner) { selectedItem ->
-                item = selectedItem
-                bind(item)
+                student = selectedItem
+                bind(student)
             }
         } else {
             binding.saveAction.setOnClickListener {
@@ -130,7 +129,7 @@ class AddClassFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         // Hide keyboard.
-        val inputMethodManager = requireActivity().getSystemService(INPUT_METHOD_SERVICE) as
+        val inputMethodManager = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as
                 InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(requireActivity().currentFocus?.windowToken, 0)
         _binding = null
