@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -15,7 +16,6 @@ import com.dvstars.dvstarsattendenceapp.StudentViewModel
 import com.dvstars.dvstarsattendenceapp.StudentViewModelFactory
 import com.dvstars.dvstarsattendenceapp.adapter.ClassDetailFragmentAdapter
 import com.dvstars.dvstarsattendenceapp.adapter.TakeAttendanceAdapter
-import com.dvstars.dvstarsattendenceapp.databinding.FragmentClassDetailBinding
 import com.dvstars.dvstarsattendenceapp.databinding.FragmentTakeAttendanceBinding
 import com.dvstars.dvstarsattendenceapp.studentData.Student
 
@@ -36,7 +36,7 @@ class TakeAttendanceFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentTakeAttendanceBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -57,7 +57,15 @@ class TakeAttendanceFragment : Fragment() {
             }
         }
 
+        binding.submit.setOnClickListener {
+           binding.linear.visibility=View.VISIBLE
+            binding.total.text=adapter.itemCount.toString()
+            binding.present.text=TakeAttendanceAdapter.c.toString()
+            val abs=adapter.itemCount-TakeAttendanceAdapter.c
+            binding.absent.text=abs.toString()
+        }
     }
+
 
     /*
      * Called when fragment is destroyed.

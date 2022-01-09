@@ -8,15 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.dvstars.dvstarsattendenceapp.AttendanceApplication
-import com.dvstars.dvstarsattendenceapp.R
 import com.dvstars.dvstarsattendenceapp.StudentViewModel
 import com.dvstars.dvstarsattendenceapp.StudentViewModelFactory
-import com.dvstars.dvstarsattendenceapp.databinding.FragmentAddClassBinding
 import com.dvstars.dvstarsattendenceapp.databinding.FragmentAddStudentBinding
 import com.dvstars.dvstarsattendenceapp.studentData.Student
 
@@ -27,7 +24,6 @@ class AddStudentFragment : Fragment() {
         )
     }
     private val navigationArgs: StudentDetailUpdateFragmentArgs by navArgs()
-    //private val navArgs:ClassDetailFragmentArgs by navArgs()
     lateinit var student: Student
 
     // Binding object instance corresponding to the fragment_add_item.xml layout
@@ -44,13 +40,11 @@ class AddStudentFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAddStudentBinding.inflate(inflater, container, false)
         return binding.root
 
     }
-
-
 
     /**
      * Returns true if the EditTexts are not empty
@@ -128,7 +122,6 @@ class AddStudentFragment : Fragment() {
      */
     override fun onDestroyView() {
         super.onDestroyView()
-        // Hide keyboard.
         val inputMethodManager = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as
                 InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(requireActivity().currentFocus?.windowToken, 0)

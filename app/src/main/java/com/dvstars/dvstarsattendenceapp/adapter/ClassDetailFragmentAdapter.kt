@@ -34,7 +34,6 @@ class ClassDetailFragmentAdapter(private val onItemClicked: (Student) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(student: Student) {
-           // binding.roll.text=student.rollNo.toString()
             binding.studentName.text = student.studentName
         }
     }

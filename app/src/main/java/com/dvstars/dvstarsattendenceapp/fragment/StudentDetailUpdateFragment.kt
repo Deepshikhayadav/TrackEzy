@@ -19,7 +19,6 @@ import com.google.android.material.textfield.TextInputEditText
 
 class StudentDetailUpdateFragment : Fragment() {
     private val navigationArgs: StudentDetailUpdateFragmentArgs by navArgs()
-   // private val navArgs: ClassDetailFragmentArgs by navArgs()
     lateinit var student:Student
 
     private val viewModel: StudentViewModel by activityViewModels {
@@ -39,11 +38,10 @@ class StudentDetailUpdateFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View{
         // Inflate the layout for this fragment
         _binding = FragmentStudentDetailUpdateBinding.inflate(inflater, container, false)
         return binding.root
-        //return inflater.inflate(R.layout.fragment_student_detail_update, container, false)
     }
     /**
      * Binds views with the passed in item data.

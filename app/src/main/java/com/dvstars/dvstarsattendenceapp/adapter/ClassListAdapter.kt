@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.dvstars.dvstarsattendenceapp.R
 import com.dvstars.dvstarsattendenceapp.classData.Item
 import com.dvstars.dvstarsattendenceapp.databinding.ClassListItemBinding
 

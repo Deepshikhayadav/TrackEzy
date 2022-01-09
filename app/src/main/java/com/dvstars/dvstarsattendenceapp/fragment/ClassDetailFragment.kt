@@ -30,14 +30,13 @@ class ClassDetailFragment : Fragment() {
     }
     private var _binding: FragmentClassDetailBinding? = null
     private val binding get() = _binding!!
-    private val navigationArgs: ClassDetailFragmentArgs by navArgs()
     lateinit var student: Student
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentClassDetailBinding.inflate(inflater, container, false)
         return binding.root
     }

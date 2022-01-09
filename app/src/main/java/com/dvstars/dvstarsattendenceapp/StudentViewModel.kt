@@ -2,7 +2,6 @@ package com.dvstars.dvstarsattendenceapp
 
 import androidx.lifecycle.*
 import com.dvstars.dvstarsattendenceapp.classData.Item
-import com.dvstars.dvstarsattendenceapp.classData.ItemDao
 import com.dvstars.dvstarsattendenceapp.studentData.Student
 import com.dvstars.dvstarsattendenceapp.studentData.StudentDao
 import kotlinx.coroutines.launch

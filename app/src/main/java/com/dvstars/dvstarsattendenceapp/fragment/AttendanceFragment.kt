@@ -12,13 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dvstars.dvstarsattendenceapp.AttendanceApplication
 import com.dvstars.dvstarsattendenceapp.AttendanceViewModel
 import com.dvstars.dvstarsattendenceapp.AttendanceViewModelFactory
-import com.dvstars.dvstarsattendenceapp.R
 import com.dvstars.dvstarsattendenceapp.adapter.AttendanceAdapter
-import com.dvstars.dvstarsattendenceapp.adapter.ClassListAdapter
-import com.dvstars.dvstarsattendenceapp.databinding.ClassListFragmentBinding
-import com.dvstars.dvstarsattendenceapp.databinding.ClassListItemBinding
 import com.dvstars.dvstarsattendenceapp.databinding.FragmentAttendanceBinding
-import com.dvstars.dvstarsattendenceapp.databinding.FragmentClassDetailBinding
 
 
 class AttendanceFragment : Fragment() {
@@ -35,7 +30,7 @@ class AttendanceFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAttendanceBinding.inflate(inflater)
         return binding.root
 
@@ -61,7 +56,5 @@ class AttendanceFragment : Fragment() {
                 adapter.submitList(it)
             }
         }
-
-
     }
 }

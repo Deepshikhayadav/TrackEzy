@@ -1,13 +1,8 @@
 package com.dvstars.dvstarsattendenceapp
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.dvstars.dvstarsattendenceapp.classData.Item
 import com.dvstars.dvstarsattendenceapp.classData.ItemDao
-import com.dvstars.dvstarsattendenceapp.studentData.Student
 import kotlinx.coroutines.launch
 
 /**
@@ -19,23 +14,6 @@ class AttendanceViewModel(private val itemDao: ItemDao) : ViewModel() {
     // Cache all items form the database using LiveData.
     val allItems: LiveData<List<Item>> = itemDao.getItems().asLiveData()
 
-    /*fun oneToMany(itemId: Int){
-        val classWithStud :LiveData<List<Student>> =getManyStudents(itemId)
-    }
-    private fun getManyStudents(className: String, sectionName: String, teacherName: String): Item {
-        return Item(
-            className=className,
-            sectionName = sectionName,
-            teacherName = teacherName
-        )
-    }
-
-    private fun getStudents(itemId: Int): LiveData<List<Student>> {
-        viewModelScope.launch {
-          itemDao.getClassWithStudents(itemId).asLiveData()
-        }
-    }
-*/
     /**
      * Updates an existing Item in the database.
      */
