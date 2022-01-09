@@ -26,6 +26,7 @@ present and absent members are displayed accordingly.
 ### Functionality and Concepts used:
 An interactive and user-friendly interface is developed with the help of material
 design views.
+
  ● Constraint Layout: It allows you to position and size widgets in a flexible way.
 
  ● Linear Layout: It aligns all children in a single direction, vertically or
