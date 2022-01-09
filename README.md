@@ -19,6 +19,9 @@ functionality the members present are recorded and the total number of
 present and absent members are displayed accordingly.
 
 ### ScreenShots
+![Capture](https://user-images.githubusercontent.com/58137357/148677296-63065ce8-2786-4365-88d7-351a1a6ee842.PNG)
+
+![Capture3](https://user-images.githubusercontent.com/58137357/148677302-c203bef5-a37a-430a-82bb-6fea43c41dbd.PNG)
 
 ### Functionality and Concepts used:
 An interactive and user-friendly interface is developed with the help of material
